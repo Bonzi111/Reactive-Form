@@ -1,0 +1,124 @@
+<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" class="body">
+  <h1>Reactive Form</h1>
+  <div>
+    <label>Name:
+      <input type="text" formControlName="name">
+    </label>
+    <div *ngIf="f.name.errors" class="alert alert-danger">
+      <p *ngIf="f.name.errors.required">!!Name Required!!</p>
+    </div>
+  </div>
+  <div>
+    <label>
+      Email:
+      <input type="email" formControlName="email">
+    </label>
+    <div *ngIf="f.email.errors" class="alert alert-danger">
+     <p *ngIf="f.email.errors.required">!!Email Required!!</p>
+      <p *ngIf="f.email.errors.pattern">!!Email Invalid!!</p>
+    </div>
+  </div>
+  <div>
+    <label>
+      Phone Number:
+      +91<input type="text" formControlName="phonenumber">
+    </label>
+    <div *ngIf="f.phonenumber.errors" class="alert alert-danger">
+      <p *ngIf="f.phonenumber.errors.required">!!PhoneNumber Required!!</p>
+      <p *ngIf="f.phonenumber.errors.minlength ">!!PhoneNumber minimum length is 10!!</p>
+      <p *ngIf="f.phonenumber.errors.maxlength ">!!PhoneNumber max length is 10!!</p>
+      <p *ngIf="f.phonenumber.errors.pattern ">!!PhoneNumber should be 0-9!!</p>
+    </div>
+  </div>
+  <div>
+    <h3>Address</h3>
+    <div>
+      <label>
+        Line1:
+        <input type="text" formControlName="line1">
+      </label>
+      <div *ngIf="f.line1.errors" class="alert alert-danger">
+        <p *ngIf="f.line1.errors.required">!!Address Required!!</p>
+      </div>
+    </div>
+    <div>
+      <label>
+        Line2:
+        <input type="text" formControlName="line2">
+      </label>
+      <div *ngIf="f.line2.errors" class="alert alert-danger">
+        <p *ngIf="f.line2.errors.required">!!Address Required!!</p>
+      </div>
+    </div>
+    <div>
+      <label>
+        State:
+        <select name="stateslist" formControlName="state">
+          <option value="">State</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Orissa">Orissa</option>
+          <option value="Pondicherry">Pondicherry</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttaranchal">Uttaranchal</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="West Bengal">West Bengal</option>
+        </select>
+      </label>
+      <div *ngIf="f.state.errors" class="alert alert-danger">
+        <p *ngIf="f.state.errors.required">!!State Required!!</p>
+      </div>
+    </div>
+    <div>
+      <label>
+        District:
+        <input type="text" formControlName="district">
+      </label>
+      <div *ngIf="f.district.errors" class="alert alert-danger">
+        <p *ngIf="f.district.errors.required">!!District Required!!</p>
+      </div>
+    </div>
+
+    <div>
+      <label>
+        Pincode:
+        <input type="text" formControlName="pincode">
+      </label>
+      <div *ngIf="f.pincode.errors" class="alert alert-danger">
+        <p *ngIf="f.pincode.errors.required">!!Pincode Required!!</p>
+        <p *ngIf="f.pincode.errors.minlength">!!Pincode minlength is 6!!</p>
+        <p *ngIf="f.pincode.errors.maxlength">!!Pincode maxlength is 6!!</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!reactiveForm.valid">Register</button>
+  </div>
